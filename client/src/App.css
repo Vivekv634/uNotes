@@ -25,15 +25,131 @@
     font-family: alegreya;
     font-weight: 400;
     font-size: 2rem;
+    color: aliceblue;
+    text-decoration: none;
 }
-.nav-list{
+
+.nav-list {
     display: flex;
     list-style-type: none;
     gap: 1rem;
 }
-.nav-link{
+
+.nav-link {
     color: aliceblue;
     font-family: sarala;
     text-decoration: none;
     font-size: 1.2rem;
+}
+
+/* input css */
+.inputLabel {
+    display: block;
+    font-family: magra;
+    font-weight: 600;
+    margin-top: 0.6rem;
+}
+
+.input input {
+    font-family: sarala;
+    font-size: 1.1rem;
+    width: 100%;
+    padding-left: .4rem;
+}
+
+/* signup and login css */
+.signup-container, .login-container {
+    display: flex;
+    box-shadow: 0 4px 10px 2px rgb(82, 82, 82);
+    width: 80%;
+    margin: auto;
+    align-items: center;
+    margin: 5rem 0;
+}
+
+.signup .left img, .login .left img {
+    width: 450px;
+    margin: 2rem;
+}
+
+.signup .left,.login .left {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50%;
+}
+
+.signup .right,.login .right {
+    width: 50%;
+    padding: 2rem;
+}
+
+.signup .heading,.login .heading {
+    font-family: magra;
+    font-weight: 700;
+    font-size: 1.5rem;
+}
+
+.signup .sub-heading,.login .sub-heading {
+    font-family: sarala;
+}
+
+.signup input[type=submit],.login input[type=submit] {
+    font-family: sarala;
+    background-color: rgb(123, 189, 184);
+    border: 1px solid rgb(123, 189, 184);
+    color: #fefefe;
+    padding: 0.2rem .5rem;
+    border-radius: .2rem;
+    font-size: .9rem;
+    cursor: pointer;
+}
+
+.signup input[type=submit]:disabled,.login input[type=submit]:disabled {
+    cursor: not-allowed;
+    background-color: rgb(144, 194, 189);
+}
+
+.login-btn {
+    text-decoration: none;
+    color: rgb(123, 189, 184);
+    background-color: #fff;
+    font-family: sarala;
+    padding: 0.2rem .5rem;
+    margin-left: 0.5rem;
+    box-shadow: 0 0 20px 1px rgb(224, 224, 224);
+    border-radius: .2rem;
+    transition: all .2s ease;
+}
+
+.login-btn:hover {
+    box-shadow: 0 0 6px rgb(82, 82, 82);
+}
+
+.signup .error,.login .error {
+    height: 2ch;
+    margin: .5rem 0;
+    font-family: sarala;
+    color: rgb(243, 71, 71);
+}
+
+@media screen and (max-width:700px) {
+    .signup .left,.login .left {
+        width: 100%;
+    }
+
+    .signup .left img,.login .left img {
+        width: 300px;
+    }
+
+    .signup .right,.login .right {
+        width: 90%;
+        padding: 0;
+    }
+
+    .signup-container,.login-container {
+        flex-direction: column;
+        width: 100%;
+        margin: 0;
+    }
 }

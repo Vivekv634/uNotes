@@ -19,7 +19,7 @@ export default function Navbar() {
     return (
         <div className="navbar">
             <div className="nav-container">
-                <div className="brand">uNotes</div>
+                <Link to='/' className="brand"><div>uNotes</div></Link>
                 <ul className="nav-list">
                     {!Cookie && <li><Link to='/signup' className="nav-link">Signup</Link></li>}
                     {!Cookie && <li><Link to='/login' className="nav-link">Login</Link></li>}

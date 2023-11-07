@@ -1,0 +1,53 @@
+import React, { useEffect, useState } from 'react';
+import SignupImage from '../images/signup.svg';
+import Input from '../components/Input';
+import { Link } from 'react-router-dom';
+import axios from 'axios';
+import Cookies from 'js-cookie';
+
+export default function Signup() {
+    const [name, setName] = useState('');
+    const [email, setEmail] = useState('');
+    const [password, setPassword] = useState('');
+    const [error, setError] = useState('');
+    const [disable, setDisable] = useState(true);
+
+    useEffect(() => {
+        if (Cookies.get('userTokenID')) {
+            window.location.assign('/notes');
+        }
+    }, []);
+
+    const handleSignup = async (e) => {
+        e.preventDefault();
+        const response = await axios.post('http://localhost:5500/auth/signup', { name, email, password });
+        const result = response.data;
+        if (result.error) {
+            setError(result.error);
+        } else {
+            alert(result.success);
+            window.location.assign('/login');
+        }
+    }
+    return (
+        <div className="signup">
+            <div className="signup-container">
+                <div className="left"><img src={SignupImage} alt="" /></div>
+                <div className="right">
+                    <div className="heading">Your notes, your way!</div>
+                    <div className="sub-heading">Sign up for our note-taking web application and never miss a brilliant idea again. Start your note-taking journey today!</div>
+                    <form typeof='POST' onSubmit={handleSignup}>
+                        <Input id='fullname' type='text' label='Full Name' value={name} handleValue={setName} required={true} />
+                        <Input id='email' type='email' label='Email Address' value={email} handleValue={setEmail} required={true} />
+                        <Input id='password' type='password' label='Password' value={password} handleValue={setPassword} required={true} />
+                        <div className="error">{error}</div>
+                        <div className="signup-btns">
+                            <input type="submit" value="Sign Up Now" disabled={disable} />
+                            <Link to='/login' className='login-btn'>Get Login</Link>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    )
+}
