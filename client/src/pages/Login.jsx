@@ -1,12 +1,10 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useEffect } from 'react';
 import LoginImage from '../images/login.svg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Input from '../components/Input';
-import { userDataContext } from '../Context/userDataContext';
 
 export default function Login() {
-  const { setName, setEmail, setPassword, setNotes } = useContext(userDataContext);
   const [fEmail, setFEmail] = useState('');
   const [fPassword, setFPassword] = useState('');
   const [error, setError] = useState('');
@@ -25,10 +23,6 @@ export default function Login() {
       setError(result.error);
     } else {
       Cookies.set('userTokenID', result.userToken);
-      setName(result.user.name);
-      setEmail(result.user.email);
-      setPassword(result.user.password);
-      setNotes(result.user.notes);
       window.location.reload();
     }
   }

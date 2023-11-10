@@ -34,7 +34,7 @@ const loginUser = async (req, res) => {
                 const checkPassword = await bcrypt.compare(password, userExists.password);
                 if (checkPassword) {
                     const token = jwt.sign({ userID: userExists._id }, process.env.TOKEN_KEY);
-                    res.json({ userToken: token, user: userExists });
+                    res.json({ userToken: token });
                 } else {
                     return res.json({ error: "Please check your credentials" });
                 }

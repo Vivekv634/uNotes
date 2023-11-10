@@ -1,7 +1,7 @@
 import './App.css';
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import { useState } from 'react';
-import { userDataContext } from './Context/userDataContext';
+import { userDataContext } from './Context/userDataContext.js';
 import Home from './pages/Home';
 import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
