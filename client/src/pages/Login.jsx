@@ -1,9 +1,9 @@
-import React, { useState, useContext, useEffect } from 'react';
+import React, { useState, useEffect, useContext } from 'react';
 import LoginImage from '../images/login.svg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Input from '../components/Input';
-import { userDataContext } from '../context/userDataContext';
+import { userDataContext } from '../Context/userDataContext';
 
 export default function Login() {
   const { setName, setEmail, setPassword, setNotes } = useContext(userDataContext);
@@ -20,7 +20,7 @@ export default function Login() {
   const handleLogin = async (e) => {
     e.preventDefault();
     const response = await axios.post('http://localhost:5500/auth/login', { email: fEmail, password: fPassword });
-    const result = response.data;
+    const result = await response.data;
     if (result.error) {
       setError(result.error);
     } else {
