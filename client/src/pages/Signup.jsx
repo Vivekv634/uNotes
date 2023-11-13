@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import SignupImage from '../images/signup.svg';
 import Input from '../components/Input';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 
@@ -11,12 +11,13 @@ export default function Signup() {
     const [password, setPassword] = useState('');
     const [error, setError] = useState('');
     const [disable, setDisable] = useState(true);
+    const navigate = useNavigate();
 
     useEffect(() => {
         if (Cookies.get('userTokenID')) {
-            window.location.assign('/notes');
+            navigate('/notes');
         }
-    }, []);
+    }, [navigate]);
 
     const handleSignup = async (e) => {
         e.preventDefault();

@@ -58,7 +58,8 @@
 }
 
 /* signup and login css */
-.signup-container, .login-container {
+.signup-container,
+.login-container {
     display: flex;
     box-shadow: 0 4px 10px 2px rgb(82, 82, 82);
     width: 80%;
@@ -67,34 +68,40 @@
     margin: 5rem auto;
 }
 
-.signup .left img, .login .left img {
+.signup .left img,
+.login .left img {
     width: 450px;
     margin: 2rem;
 }
 
-.signup .left,.login .left {
+.signup .left,
+.login .left {
     display: flex;
     justify-content: center;
     align-items: center;
     width: 50%;
 }
 
-.signup .right,.login .right {
+.signup .right,
+.login .right {
     width: 50%;
     padding: 2rem;
 }
 
-.signup .heading,.login .heading {
+.signup .heading,
+.login .heading {
     font-family: magra;
     font-weight: 700;
     font-size: 1.5rem;
 }
 
-.signup .sub-heading,.login .sub-heading {
+.signup .sub-heading,
+.login .sub-heading {
     font-family: sarala;
 }
 
-.signup input[type=submit],.login input[type=submit] {
+.signup input[type=submit],
+.login input[type=submit] {
     font-family: sarala;
     background-color: rgb(123, 189, 184);
     border: 1px solid rgb(123, 189, 184);
@@ -105,7 +112,8 @@
     cursor: pointer;
 }
 
-.signup input[type=submit]:disabled,.login input[type=submit]:disabled {
+.signup input[type=submit]:disabled,
+.login input[type=submit]:disabled {
     cursor: not-allowed;
     background-color: rgb(144, 194, 189);
 }
@@ -126,7 +134,8 @@
     box-shadow: 0 0 6px rgb(82, 82, 82);
 }
 
-.signup .error,.login .error {
+.signup .error,
+.login .error {
     height: 2ch;
     margin: .5rem 0;
     font-family: sarala;
@@ -134,20 +143,25 @@
 }
 
 @media screen and (max-width:700px) {
-    .signup .left,.login .left {
+
+    .signup .left,
+    .login .left {
         width: 100%;
     }
 
-    .signup .left img,.login .left img {
+    .signup .left img,
+    .login .left img {
         width: 300px;
     }
 
-    .signup .right,.login .right {
+    .signup .right,
+    .login .right {
         width: 90%;
         padding: 0;
     }
 
-    .signup-container,.login-container {
+    .signup-container,
+    .login-container {
         flex-direction: column;
         width: 100%;
         margin: 0;
@@ -155,11 +169,42 @@
 }
 
 /* page not found css */
-.pagenotfound{
+.pagenotfound {
     display: flex;
     justify-content: center;
     align-items: center;
 }
-.pagenotfound img{
+
+.pagenotfound img {
     width: 300px;
+}
+
+/* notes dashboard css */
+
+.notes .add-note {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.notes .loading,
+.notes .sub-heading {
+    font-family: sarala;
+    display: flex;
+    justify-content: center;
+    margin-top: 2rem;
+}
+
+.notes .add-note img {
+    width: 300px;
+}
+
+.add-note-btn {
+    position: absolute;
+    bottom: 1rem;
+    right: 1rem;
+    background-color: rgb(123, 189, 184);
+    padding: 0.5rem;
+    border-radius: 50%;
 }

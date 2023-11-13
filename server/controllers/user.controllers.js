@@ -50,7 +50,7 @@ const deleteNote = async (req, res) => {
         userNotes.notes.push(note);
     });
     await userNotes.save();
-    res.json(userNotes);
+    res.json({ userNotes, success: "Note Deleted!" });
 }
 
 module.exports = { getAllNotes, createNote, updateNote, deleteNote };

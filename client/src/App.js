@@ -7,6 +7,7 @@ import Navbar from './components/Navbar';
 import Signup from './pages/Signup';
 import Login from './pages/Login';
 import Notes from './pages/Notes';
+import AddNote from './pages/AddNote';
 import PageNotFound from './pages/PageNotFound';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
           <Route exact path='/signup' element={<Signup />} />
           <Route exact path='/login' element={<Login />} />
           <Route exact path='/notes' element={<Notes />} />
+          <Route exact path='/notes/addnote' element={<AddNote />} />
           <Route path='*' element={<PageNotFound />} />
         </Routes>
       </Router>

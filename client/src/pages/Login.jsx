@@ -3,17 +3,19 @@ import LoginImage from '../images/login.svg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import Input from '../components/Input';
+import { useNavigate } from 'react-router-dom';
 
 export default function Login() {
   const [fEmail, setFEmail] = useState('');
   const [fPassword, setFPassword] = useState('');
   const [error, setError] = useState('');
+  const navigate = useNavigate();
 
   useEffect(() => {
     if (Cookies.get('userTokenID')) {
-      window.location.assign('/notes');
+      navigate('/notes');
     }
-  }, []);
+  }, [navigate]);
 
   const handleLogin = async (e) => {
     e.preventDefault();
