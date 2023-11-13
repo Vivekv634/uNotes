@@ -180,6 +180,13 @@
 }
 
 /* notes dashboard css */
+.notes {
+    display: flex;
+    flex-wrap: wrap;
+    position: relative;
+    height: 90vh;
+    width: 100%;
+}
 
 .notes .add-note {
     display: flex;
@@ -240,7 +247,45 @@
     margin-top: 0.5rem;
     font-family: sarala;
 }
-.add-note .back-arrow{
+
+.add-note .back-arrow {
     font-family: sarala;
     text-decoration: none;
+}
+
+/* note css */
+.note {
+    background-color: #f4f4f4;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    width: fit-content;
+    min-width: 8rem;
+    max-width: 13rem;
+    padding: 1rem;
+    border-radius: 1rem;
+    margin: 0.8rem;
+    max-height: fit-content;
+}
+
+.note .note-title {
+    font-weight: 600;
+    font-family: magra;
+    font-size: 1.3rem;
+    text-wrap: wrap;
+}
+
+.note .note-body {
+    font-family: sarala;
+}
+
+.note .note-menu {
+    display: flex;
+    justify-content: space-between;
+}
+@media screen and (max-width:385px) {
+    .note{
+        min-width: 100%;
+        width: 100%;
+    }
 }

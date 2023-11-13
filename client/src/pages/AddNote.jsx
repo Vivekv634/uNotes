@@ -3,7 +3,6 @@ import Input from '../components/Input';
 import axios from 'axios';
 import Cookies from 'js-cookie';
 import { Link } from 'react-router-dom';
-import backArrowImage from '../images/back-arrow.svg';
 
 export default function AddNote() {
     const [title, setTitle] = useState('');

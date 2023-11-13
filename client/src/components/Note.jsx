@@ -20,8 +20,10 @@ export default function Note(props) {
     }
     return (
         <div id={props.noteID} className='note'>
-            <div className='note-title'>{props.title}</div>
-            <div className='note-body'>{props.body}</div>
+            <div className="note-content">
+                <div className='note-title'>{props.title}</div>
+                <div className='note-body'>{props.body}</div>
+            </div>
             <div className="note-menu">
                 <div className="edit-note" onClick={handleEditNote}><img src={EditNote} alt="" id={props.noteID} /></div>
                 <div className="delete-note" onClick={handleDeleteNote}><img src={DeleteNote} alt="" /></div>

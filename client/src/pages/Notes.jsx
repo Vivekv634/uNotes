@@ -31,11 +31,18 @@ export default function Notes() {
         fetchNotes();
     }, [userID]);
 
+    const trimString = (body, size) => {
+        if (body.length > size) {
+            return body.substring(0, size).concat('...');
+        } else {
+            return body;
+        }
+    }
     return (
         <div className="notes">
             {loading ?
                 <div className='loading'>Loading...</div> :
-                notes.length ? notes.map(note => { return <Note key={note._id} noteID={note._id} title={note.title} body={note.body} /> }) :
+                notes.length ? notes.map(note => { return <Note key={note._id} noteID={note._id} title={trimString(note.title, 40)} body={trimString(note.body, 60)} /> }) :
                     <div className='add-note'>
                         <img src={addNoteImage} alt="add note" />
                         <div className="sub-heading">Make your Note now...</div>
