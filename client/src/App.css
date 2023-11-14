@@ -185,9 +185,8 @@ body {
 
 /* notes dashboard css */
 .notes {
-    height: fit-content;
+    height: 90vh;
     width: 100%;
-    /* position: relative; */
 }
 
 .notes-container {
@@ -218,9 +217,9 @@ body {
 }
 
 .add-note-btn {
-    position: sticky;
+    position: fixed;
     bottom: 1rem;
-    left: 85%;
+    right: 1rem;
     background-color: rgb(123, 189, 184);
     padding: 0.5rem;
     border-radius: 50%;
