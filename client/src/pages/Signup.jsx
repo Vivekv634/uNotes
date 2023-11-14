@@ -19,6 +19,33 @@ export default function Signup() {
         }
     }, [navigate]);
 
+    useEffect(() => {
+        if (name.length) {
+            if (/^[a-zA-Z ]*$/.test(name)) {
+                setError('');
+                setDisable(false);
+            } else {
+                setError('Enter valid name');
+                setDisable(true);
+            }
+        } else {
+            setError('');
+            setDisable(true);
+        }
+        if (password.length) {
+            if (password.length < 8) {
+                setError('Password must contain 8 letters');
+                setDisable(true);
+            } else {
+                setError('');
+                setDisable(false);
+            }
+        } else {
+            setError('');
+            setDisable(true);
+        }
+    }, [password, name]);
+
     const handleSignup = async (e) => {
         e.preventDefault();
         const response = await axios.post('http://localhost:5500/auth/signup', { name, email, password });

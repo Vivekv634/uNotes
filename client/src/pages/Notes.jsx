@@ -40,14 +40,16 @@ export default function Notes() {
     }
     return (
         <div className="notes">
-            {loading ?
-                <div className='loading'>Loading...</div> :
-                notes.length ? notes.map(note => { return <Note key={note._id} noteID={note._id} title={trimString(note.title, 40)} body={trimString(note.body, 60)} /> }) :
-                    <div className='add-note'>
-                        <img src={addNoteImage} alt="add note" />
-                        <div className="sub-heading">Make your Note now...</div>
-                    </div>
-            }
+            <div className="notes-container">
+                {loading ?
+                    <div className='loading'>Loading...</div> :
+                    notes.length ? notes.map(note => { return <Note key={note._id} noteID={note._id} title={trimString(note.title, 40)} body={trimString(note.body, 60)} /> }) :
+                        <div className='add-note'>
+                            <img src={addNoteImage} alt="add note" />
+                            <div className="sub-heading">Make your Note now...</div>
+                        </div>
+                }
+            </div>
             <Link to='/notes/addnote'><img className='add-note-btn' src={addImage} alt="add note button" /></Link>
         </div>
     )
