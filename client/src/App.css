@@ -247,7 +247,9 @@ body {
     min-height: 10vh;
 }
 
-.add-note input[type='submit'] {
+.add-note input[type='submit'],
+.add-note .cancel-btn,
+.add-note input[type='button'] {
     background-color: rgb(123, 189, 184);
     border: none;
     padding: 0.5rem;
@@ -255,6 +257,14 @@ body {
     color: #fefefe;
     margin-top: 0.5rem;
     font-family: sarala;
+}
+
+.add-note .cancel-btn,
+.add-note input[type='button']:last-child {
+    margin: 0 1rem;
+    background: white;
+    color: rgb(123, 189, 184);
+    border: 1px solid rgb(123, 189, 184);
 }
 
 .add-note .back-arrow {

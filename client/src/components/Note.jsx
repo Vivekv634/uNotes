@@ -3,11 +3,19 @@ import DeleteNote from '../images/delete-note.svg';
 import EditNote from '../images/edit-note.svg';
 import axios from 'axios';
 import Cookies from 'js-cookie';
+import { useContext } from 'react';
+import { noteContext } from '../Context/noteContext';
+import { useNavigate } from 'react-router-dom';
 
 export default function Note(props) {
+    const navigate = useNavigate();
+    const { setNoteID } = useContext(noteContext);
+
     const handleEditNote = (e) => {
-        console.log(e.target.id)
+        setNoteID(props.noteID);
+        navigate('/notes/updatenote');
     }
+
     const handleDeleteNote = async (e) => {
         const response = await axios.delete(`http://localhost:5500/user/notes/delete/${props.noteID}?id=${Cookies.get('userTokenID')}`);
         const result = await response.data;
@@ -18,9 +26,15 @@ export default function Note(props) {
             window.location.reload();
         }
     }
+
+    const handleNoteClick = () => {
+        setNoteID(props.noteID);
+        navigate('/notes/note');
+    }
+    
     return (
         <div id={props.noteID} className='note'>
-            <div className="note-content">
+            <div className="note-content" onClick={handleNoteClick}>
                 <div className='note-title'>{props.title}</div>
                 <div className='note-body'>{props.body}</div>
             </div>

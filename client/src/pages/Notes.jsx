@@ -13,7 +13,6 @@ export default function Notes() {
     const navigate = useNavigate();
 
     useEffect(() => {
-
         if (Cookies.get('userTokenID')) {
             setUserID(Cookies.get('userTokenID'));
         } else {
@@ -38,6 +37,7 @@ export default function Notes() {
             return body;
         }
     }
+    
     return (
         <div className="notes">
             <div className="notes-container">

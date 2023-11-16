@@ -28,6 +28,7 @@ export default function Login() {
       window.location.reload();
     }
   }
+  
   return (
     <div className="login">
       <div className="login-container">

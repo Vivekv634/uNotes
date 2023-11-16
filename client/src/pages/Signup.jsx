@@ -57,6 +57,7 @@ export default function Signup() {
             window.location.assign('/login');
         }
     }
+    
     return (
         <div className="signup">
             <div className="signup-container">

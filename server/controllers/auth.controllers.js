@@ -48,4 +48,5 @@ const loginUser = async (req, res) => {
         return res.json({ error: "Internal server error occured!" });
     }
 }
+
 module.exports = { registerUser, loginUser };

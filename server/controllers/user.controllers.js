@@ -10,6 +10,18 @@ const getAllNotes = async (req, res) => {
     }
 }
 
+const getNoteByID = async (req, res) => {
+    const userID = req.userID;
+    const noteID = req.params.noteID;
+    const user = await User.findById(userID);
+    if (user) {
+        const note = user.notes.filter((note) => note._id == noteID);
+        res.json(note);
+    } else {
+        res.json({ error: "User Doesn't exists!" });
+    }
+}
+
 const createNote = async (req, res) => {
     const userID = req.userID;
     const { title, body } = req.body;
@@ -37,7 +49,7 @@ const updateNote = async (req, res) => {
         }
     });
     await userNotes.save();
-    res.json(userNotes);
+    res.json({ userNotes, success: "Note Updated!" });
 }
 
 const deleteNote = async (req, res) => {
@@ -53,4 +65,4 @@ const deleteNote = async (req, res) => {
     res.json({ userNotes, success: "Note Deleted!" });
 }
 
-module.exports = { getAllNotes, createNote, updateNote, deleteNote };
+module.exports = { getAllNotes, getNoteByID, createNote, updateNote, deleteNote };

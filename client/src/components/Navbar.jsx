@@ -16,6 +16,7 @@ export default function Navbar() {
             window.location.reload();
         }
     }
+    
     return (
         <div className="navbar">
             <div className="nav-container">
